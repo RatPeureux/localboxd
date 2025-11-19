@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Appli Perso Electron</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Configuration de base pour Tailwind et la police Inter */
+        html { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen p-4">
+    <div class="max-w-xl w-full bg-white p-8 rounded-xl shadow-2xl border border-gray-100">
+        <h1 class="text-4xl font-extrabold text-gray-800 mb-4">Bienvenue dans votre Application Electron!</h1>
+        <p class="text-gray-600 mb-6">
+            Ceci est le point de départ de votre projet personnel. Le contenu que vous voyez ici
+            est du HTML, stylisé avec Tailwind CSS, et exécuté dans une fenêtre de bureau native.
+        </p>
+
+        <!-- Zone pour afficher des informations dynamiques -->
+        <div class="bg-indigo-50 border-l-4 border-indigo-500 text-indigo-800 p-4 rounded-lg" role="alert">
+            <p class="font-bold">Informations Système</p>
+            <!-- Ces scripts affichent la version de Node.js et Electron, prouvant que le rendu fonctionne dans l'environnement Electron -->
+            <p id="version-info" class="text-sm mt-2">Chargement des versions...</p>
+        </div>
+
+        <button class="mt-6 w-full px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-150 transform hover:scale-[1.01]">
+            Commencer le Développement
+        </button>
+    </div>
+
+    <script>
+        // Ceci est le code JavaScript de votre interface (Renderer Process)
+        // Il a accès à l'API Node.js/Electron car contextIsolation est désactivé dans main.js.
+
+        // Petite astuce pour afficher les versions d'Electron et Node.js
+        document.addEventListener('DOMContentLoaded', () => {
+            const versionElement = document.getElementById('version-info');
+            // 'process' est une variable globale de Node.js disponible dans Electron.
+            if (typeof process !== 'undefined') {
+                versionElement.innerHTML = `
+                    Node.js : <strong>${process.versions.node}</strong>,
+                    Chrome : <strong>${process.versions.chrome}</strong>,
+                    Electron : <strong>${process.versions.electron}</strong>
+                `;
+            } else {
+                versionElement.textContent = "Environnement Electron non détecté.";
+            }
+        });
+    </script>
+</body>
+</html>

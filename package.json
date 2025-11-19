@@ -1,0 +1,19 @@
+{
+  "name": "appli-perso-electron",
+  "version": "1.0.0",
+  "description": "Application personnelle Electron pour usage local.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "electron",
+    "desktop",
+    "appli-perso"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.2.0"
+  }
+}
