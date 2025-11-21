@@ -11,7 +11,7 @@ function createWindow() {
     width: 800,
     height: 600,
     frame: false,
-    icon: path.join(__dirname, '../public/localboxd.png'),
+    icon: path.join(__dirname, '../public/favicon.ico'),
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,

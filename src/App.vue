@@ -3,7 +3,7 @@ const minimize = () => window.electronAPI.minimize();
 const maximize = () => window.electronAPI.maximize();
 const closeApp = () => window.electronAPI.close();
 
-import logoUrl from './assets/images/localboxd.png'
+import logoUrl from './assets/icons/favicon.ico'
 </script>
 
 <template>
