@@ -1,6 +1,9 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
+// Désactiver les accélérations matérielles (logs d'erreurs graphiques)
+app.disableHardwareAcceleration();
+
 function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 800,
