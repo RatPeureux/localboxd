@@ -1,11 +1,11 @@
-const { app, BrowserWindow, ipcMain } = require('electron'); // AJOUT: ipcMain
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    frame: false, // AJOUT: Cela désactive la barre native windows/mac/linux
+    frame: false, // Désactive la barre de titre native
     icon: path.join(__dirname, 'icon.png'),
     webPreferences: {
       nodeIntegration: true,
@@ -27,9 +27,6 @@ app.whenReady().then(() => {
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
-
-// --- AJOUT : Gestion des événements de la fenêtre personnalisée ---
-// Le rendu (HTML) va envoyer des messages ici quand on clique sur les boutons
 
 ipcMain.on('minimize-app', (event) => {
   BrowserWindow.fromWebContents(event.sender).minimize();

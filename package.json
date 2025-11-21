@@ -1,5 +1,5 @@
 {
-  "name": "appli-perso-electron",
+  "name": "localboxd",
   "version": "1.0.0",
   "description": "Application personnelle Electron pour usage local.",
   "main": "main.js",

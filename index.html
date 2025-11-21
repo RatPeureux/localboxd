@@ -16,9 +16,9 @@
 <body class="bg-gray-50 h-screen flex flex-col overflow-hidden">
 
     <header class="bg-[#2c3440] text-white h-10 flex items-center justify-between px-4 titlebar-drag flex-shrink-0">
-        <div class="text- font-bold tracking-wider flex items-center gap-2" style="font-family: 'Montserrat', sans-serif; text-transform: lowercase; letter-spacing: 0.02em;">
+        <div class="font-bold tracking-wider flex items-center gap-2" style="font-family: 'Montserrat', sans-serif; text-transform: lowercase; letter-spacing: 0.02em;">
             <style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');</style>
-            <img src="logo.png" alt="localboxd-logo" class="h-5 w-5 object-contain">
+            <img src="local.png" alt="localboxd-logo" class="h-5 w-5 object-contain">
             <span>Localboxd</span>
         </div>
 
@@ -48,42 +48,30 @@
     </div>
 
     <script>
-        // 1. Importation
         const { ipcRenderer } = require('electron');
 
-        // --- BOUTONS CLASSIQUES ---
+        // Gestion des boutons de la barre de titre
+
+        // Minimiser
         document.getElementById('btn-min').addEventListener('click', () => {
             ipcRenderer.send('minimize-app');
         });
 
+        // Agrandir/Réduire
         document.getElementById('btn-max').addEventListener('click', () => {
             ipcRenderer.send('maximize-app');
         });
 
+        // Fermer
         document.getElementById('btn-close').addEventListener('click', () => {
             ipcRenderer.send('close-app');
         });
 
-        // --- NOUVEAU : GESTION DU DOUBLE-CLIC ---
-        // On cible la barre de titre (assurez-vous d'avoir ajouté id="titlebar" à votre <header>)
-        // Note : Si vous n'avez pas ajouté l'ID, on peut utiliser document.querySelector('header')
         const titlebar = document.querySelector('header');
 
+        // Double-clic sur la barre de titre pour agrandir/réduire
         titlebar.addEventListener('dblclick', () => {
-            // On réutilise exactement la même commande que le bouton agrandir
             ipcRenderer.send('maximize-app');
-        });
-
-        // --- INFO VERSIONS ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const versionElement = document.getElementById('version-info');
-            if (typeof process !== 'undefined') {
-                versionElement.innerHTML = `
-                    Node.js : <strong>${process.versions.node}</strong>,
-                    Chrome : <strong>${process.versions.chrome}</strong>,
-                    Electron : <strong>${process.versions.electron}</strong>
-                `;
-            }
         });
     </script>
 </body>
