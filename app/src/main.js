@@ -9,14 +9,14 @@ function createWindow() {
     width: 800,
     height: 600,
     frame: false, // Désactive la barre de titre native
-    icon: path.join(__dirname, 'icon.png'),
+    icon: path.join(__dirname, '../public/logos/localboxd.png'),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
     }
   });
 
-  mainWindow.loadFile('index.html');
+  mainWindow.loadFile(path.join(__dirname, 'index.html'));
 }
 
 app.whenReady().then(() => {

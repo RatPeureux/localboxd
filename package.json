@@ -2,16 +2,16 @@
   "name": "localboxd",
   "version": "1.0.0",
   "description": "Explorateur de films et séries en local",
-  "main": "main.js",
+  "main": "app/src/main.js",
   "scripts": {
     "start": "electron ."
   },
   "keywords": [
     "electron",
     "desktop",
-    "appli-perso"
+    "localboxd"
   ],
-  "author": "",
+  "author": "Léo \"RatPeureux\" Bléas",
   "license": "ISC",
   "devDependencies": {
     "electron": "^28.2.0"
