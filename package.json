@@ -1,7 +1,7 @@
 {
   "name": "localboxd",
   "version": "1.0.0",
-  "description": "Explorateur de films et séries en local",
+  "description": "Local video explorer",
   "main": "./electron/main.js",
   "scripts": {
     "vite": "vite",
