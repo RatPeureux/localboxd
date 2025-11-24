@@ -1,0 +1,11 @@
+html {
+  font-family: "Inter", sans-serif;
+}
+
+.titlebar-drag {
+  -webkit-app-region: drag;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}/*# sourceMappingURL=main.css.map */
